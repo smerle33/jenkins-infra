@@ -12,7 +12,6 @@ azure::getjenkinsio::storagekey: ENC[PKCS7,MIIBygYJKoZIhvcNAQcDoIIBuzCCAbcCAQAxg
 
 # SSH keys used for inter-machine accesses
 osuosl_mirroring::privkey: |
-  >
   ENC[PKCS7,MIIH/QYJKoZIhvcNAQcDoIIH7jCCB+oCAQAxggEhMIIBHQIBAD
   AFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAV+V7n9zWF1EplI1GDR7fJRm/uH
   LxKPdzfmzzFdNZtYoYjJoTXS8Stm3hoNb+E4H5TWOmGu6NBh9C47PL7sYfoP
@@ -61,7 +60,6 @@ osuosl_mirroring::privkey: |
   vpNPqMjpDA189GtI9IHY1DeIv/tLbMbEupKg9musp6]
 
 archives_jenkins_io_mirroring::privkey: |
-  >
   ENC[PKCS7,MIIH/QYJKoZIhvcNAQcDoIIH7jCCB+oCAQAxggEhMIIBHQIBAD
   AFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAM/4JE7cVeWM97wYS9NFUAeLxoD
   Hn3xE/hJp5xCOlsKn2APO3h5qS9LdzUaOabD9Xjbnc9V4o3eUkfJscfvvxbr
