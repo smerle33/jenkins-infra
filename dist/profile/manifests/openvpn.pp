@@ -13,7 +13,7 @@ class profile::openvpn (
   Optional[String] $openvpn_dh_pem              = undef,
   Hash $vpn_network                             = {},
   Hash $networks                                = {},
-  Hash[String,String] $allowed_external_ssh_ips = []
+  Hash[String,String] $external_ips_vpn_restricted = []
 ) {
   include stdlib # Required to allow using stlib methods and custom datatypes
   include profile::docker
@@ -182,7 +182,7 @@ class profile::openvpn (
       }
     } else {
       # Allow routing from VPN to the following external (Internet) with outbound SSH (admin restrictions)
-      $allowed_external_ssh_ips.each |String $service_name, String $external_ssh_ip| {
+      $external_ips_vpn_restricted.each |String $service_name, String $external_ssh_ip| {
         $external_ssh_ip_cidr = "${external_ssh_ip}/32"
 
         firewall { "100 allow routing from ${vpn_network['cidr']} to ${service_name} (${external_ssh_ip}) on port 22":
