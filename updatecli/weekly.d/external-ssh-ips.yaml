@@ -28,7 +28,7 @@ targets:
     sourceid: aws-ci-jenkins-io
     spec:
       file: hieradata/common.yaml
-      key: $.profile::openvpn::allowed_external_ssh_ips.'aws.ci.jenkins.io'
+      key: $.profile::openvpn::external_ips_vpn_restricted.'aws.ci.jenkins.io'
     scmid: default
 
 actions:
