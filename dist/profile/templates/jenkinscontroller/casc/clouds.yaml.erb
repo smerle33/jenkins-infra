@@ -315,11 +315,12 @@ jenkins:
         <%- if agent['os'].to_s == 'windows' -%>
         <%- else -%>
           #!/bin/sh
-          set -eEux -o pipefail
+          set -eEux
 
           # Wait for cloud init (run in background as root user from 'userData') to finish successfully
-          until [ -e "<%= $cloudInitDoneFile %>%" ]; do
+          until [ -e "<%= $cloudInitDoneFile %>" ]; do
             sleep 1
+            echo "Waiting for Cloud Init to finish..."
           done
         <%- end -%>
         instanceCapStr: "<%= agent['maxInstances'] %>"
@@ -353,7 +354,7 @@ jenkins:
           useBidPrice: false
         <%- end -%>
         stopOnTerminate: false
-        subnetId: "<%= agent['subnetId'] ? agent['subnetId'] : (ec2_cloud_setup['subnetId'] ? ec2_cloud_setup['subnetId'] : "") %>%"
+        subnetId: "<%= agent['subnetId'] ? agent['subnetId'] : (ec2_cloud_setup['subnetId'] ? ec2_cloud_setup['subnetId'] : "") %>"
         t2Unlimited: false
         tags:
         - name: "architecture"
@@ -416,7 +417,7 @@ jenkins:
           rm -f /etc/sudoers.d/90-cloud-init-users
 
           ## Mark cloud init finished (cloud-init status --wait might not report all errors)
-          touch "<%= $cloudInitDoneFile %>%"
+          touch "<%= $cloudInitDoneFile %>"
         <%- end -%>
       <%- end -%>
     <%- end -%>
