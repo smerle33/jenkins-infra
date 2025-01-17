@@ -93,6 +93,7 @@ profile::jenkinscontroller::jcasc:
     kubernetes:
       ci.jenkins.io-agents-2:
         enabled: true
+        acpServerId: azure-aks-internal # will probably be aws-eks-internal
         defaultNamespace: jenkins-agents
         max_capacity: 150 # TODO: Re-evaluate and setup updatecli
         agent_definitions:
@@ -196,6 +197,7 @@ profile::jenkinscontroller::jcasc:
                 effect: "NoSchedule"
       ci.jenkins.io-agents-2-bom:
         enabled: true
+        acpServerId: azure-aks-internal # will probably be aws-eks-internal
         defaultNamespace: jenkins-agents-bom
         max_capacity: 150 # TODO: Re-evaluate and setup updatecli
         agent_definitions:
